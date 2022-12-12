@@ -1,19 +1,22 @@
 pipeline {
     agent any
     stages {
+        stage('Fetch code') {
+            steps {
+                echo 'Build'
+                git branch: 'master', url: 'https://github.com/sivajiseru/java.git'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building'
+                echo 'Build'
+                sh 'mvn install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
+                echo 'Test'
+                sh 'mvn test'
             }
         }
     }
