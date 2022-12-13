@@ -4,7 +4,7 @@ pipeline {
         stage('Fetch code') {
             steps {
                 echo 'Build'
-                //git branch: 'master', url: 'https://github.com/sivajiseru/java.git'
+                git branch: 'master', url: 'https://github.com/sivajiseru/java.git'
             }
         }
         stage('Build') {
